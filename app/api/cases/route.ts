@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+export const runtime = 'edge';
 const MOCK_CASES = [
   { id: "BT-1001", type: "Individual", years: [2022, 2023], debt: 20000, status: "Info Gathering", disposableIncome: 200, assets: [] },
   { id: "BT-1002", type: "Business", years: [2021], debt: 54000, status: "In Progress", disposableIncome: 1200, assets: ["Truck"] },

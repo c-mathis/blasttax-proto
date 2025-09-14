@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+export const runtime = 'edge';
 export async function POST(req: Request) {
   const body = await req.json().catch(()=>({}));
   const { debt = 0, income = 0, expenses = 0 } = body;

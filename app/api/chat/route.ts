@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+export const runtime = 'edge';
 export async function POST(req: Request) {
   const { messages = [] } = await req.json().catch(()=>({}));
   const last = messages[messages.length - 1]?.content || "";

@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 async function getMetrics() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/admin/metrics`, { cache: "no-store" });
   return res.json();
