@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #f3f3f3;
+  --paper: #ffffff;
+  --ink: #111111;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --surface: #f7f7f7;
+  --brand: #0f0f0f;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  --max: 1200px;
+}
+body { @apply bg-[var(--bg)] text-[var(--ink)]; }
+.container { @apply max-w-max mx-auto px-6; }
+.card { @apply bg-[var(--paper)] rounded-xl shadow-soft p-6 border border-[var(--line)]; }
+.btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-[var(--line)] bg-[var(--paper)] hover:bg-[var(--surface)] transition; }
+.btn.brand { @apply bg-[var(--brand)] text-white border-transparent; }
+.input { @apply w-full rounded-xl border border-[var(--line)] px-3 py-2 bg-white; }
+.label { @apply text-sm text-[var(--muted)] mb-1; }
+.kpi { @apply text-2xl font-semibold; }
+.badge { @apply inline-flex items-center text-xs px-2 py-1 rounded-full border border-[var(--line)] bg-[var(--surface)]; }
+nav a.active { @apply text-[var(--brand)] font-semibold; }
