@@ -1,19 +1,26 @@
 "use client";
 import { useState } from "react";
 
+type Message = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export default function AssistantPage() {
-  const [messages, setMessages] = useState<{role:"user"|"assistant", content:string}[]>([
-    { role:"assistant", content:"Hi! I can explain IRS notices and general concepts. I can’t give personalized legal or financial advice."}
+  const [messages, setMessages] = useState<Message[]>([
+    { role:"assistant", content:"Hi! I can explain IRS notices and general concepts. I can't give personalized legal or financial advice."}
   ]);
   const [input, setInput] = useState("What is an Offer in Compromise?");
 
   const send = async () => {
-    const next = [...messages, { role:"user", content: input }];
+    const userMessage: Message = { role:"user", content: input };
+    const next = [...messages, userMessage];
     setMessages(next);
     setInput("");
     const res = await fetch("/api/chat", { method:"POST", body: JSON.stringify({ messages: next }) });
     const data = await res.json();
-    setMessages([...next, { role:"assistant", content: data.reply }]);
+    const assistantMessage: Message = { role:"assistant", content: data.reply };
+    setMessages([...next, assistantMessage]);
   };
 
   return (
